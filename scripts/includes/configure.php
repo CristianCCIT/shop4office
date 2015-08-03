@@ -1,0 +1,36 @@
+<?php
+define('HTTP_SERVER', 'http://www.shop4office.be');
+define('HTTP_CATALOG_SERVER', 'http://www.shop4office.be');
+define('HTTPS_CATALOG_SERVER', 'http://www.shop4office.be');
+define('ENABLE_SSL_CATALOG', 'false');
+define('DIR_FS_DOCUMENT_ROOT', '/var/www/vhosts/shop4office.be/httpdocs/checkout/');
+define('DIR_WS_ADMIN', '/checkout/scripts/');
+define('DIR_FS_ADMIN', '/var/www/vhosts/shop4office.be/httpdocs/checkout/scripts/');
+define('DIR_WS_CATALOG', '/checkout/');
+define('DIR_FS_CATALOG', '/var/www/vhosts/shop4office.be/httpdocs/checkout/');
+define('DIR_WS_IMAGES', 'images/');
+define('DIR_WS_ICONS', DIR_WS_IMAGES . 'icons/');
+define('DIR_WS_CATALOG_IMAGES', DIR_WS_CATALOG . 'images/');
+define('DIR_WS_INCLUDES', 'includes/');
+define('DIR_WS_BOXES', DIR_WS_INCLUDES . 'boxes/');
+define('DIR_WS_FUNCTIONS', DIR_WS_INCLUDES . 'functions/');
+define('DIR_WS_CLASSES', DIR_WS_INCLUDES . 'classes/');
+define('DIR_WS_MODULES', DIR_WS_INCLUDES . 'modules/');
+define('DIR_WS_LANGUAGES', DIR_WS_INCLUDES . 'languages/');
+define('DIR_WS_CATALOG_LANGUAGES', DIR_WS_CATALOG . 'includes/languages/');
+define('DIR_FS_CATALOG_LANGUAGES', DIR_FS_CATALOG . 'includes/languages/');
+define('DIR_FS_CATALOG_IMAGES', DIR_FS_CATALOG . 'images/');
+define('DIR_FS_CATALOG_MODULES', DIR_FS_CATALOG . 'includes/modules/');
+define('DIR_FS_BACKUP', DIR_FS_ADMIN . 'backups/');
+define('DB_SERVER', 'localhost');
+define('DB_SERVER_USERNAME', 'abocheckout');
+define('DB_SERVER_PASSWORD', 'aboch!@3ut');
+define('DB_DATABASE', 'admin_checkout');
+define('USE_PCONNECT', 'false');
+define('DB_SERVER_LOCAL', 'localhost');
+define('DB_SERVER_USERNAME_LOCAL', 'abocheckout');
+define('DB_SERVER_PASSWORD_LOCAL', 'aboch!@3ut');
+define('DB_DATABASE_LOCAL', 'admin_checkout');
+define('STORE_SESSIONS', '');
+define('MAX_DISPLAY_SEARCH_RESULTS', 20);
+?>

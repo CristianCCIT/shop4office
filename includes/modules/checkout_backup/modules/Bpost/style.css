@@ -1,0 +1,46 @@
+/********************/
+/*	Bpost module	*/
+/********************/
+label.Bpost_label {
+	display:block;
+}
+.Bpost_sp {
+	border-radius: 3px;
+	padding:15px 5px;
+}
+.Bpost_sp:hover {
+	background-color: #e5e5e5;
+}
+.Bpost_sp [type="radio"] {
+	float:left;
+	clear:left;
+	margin-right: 5px;
+}
+.Bpost_sp_image {
+	float:left;
+	margin-right:22px;
+	margin-left:22px;
+	margin-bottom:22px;
+}
+.Bpost_sp_name {
+	font-weight:bold;
+	float:left;
+}
+.Bpost_sp_id {
+	float:right;
+	color: #666;
+	font-size: 0.8em;
+}
+.Bpost_sp_address {
+	font-size: 0.9em;
+}
+.Bpost_sp_address {
+	clear:right;
+}
+.Bpost_sp_locationhint {
+	color: #666;
+	font-style:italic;
+	font-size: 0.8em;
+	float:left;
+	margin-left: 3px;
+}

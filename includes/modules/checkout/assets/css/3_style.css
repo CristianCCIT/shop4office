@@ -1,0 +1,250 @@
+body{
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+h3 {
+	font-size:15px;
+	margin:12px 0 6px 0;
+}
+h4 {
+	margin:12px 0 6px 0;
+}
+
+a {
+	text-decoration:underline;	
+}
+a.btn {
+	text-decoration:none;	
+}
+.logo {
+	background-image: url("../../../../images/mail/logo.jpg");
+	background-repeat: no-repeat;
+	width:150px;
+	height:150px;
+}
+
+.step_title {
+	background-color: #fff;
+	border:1px solid #E2E2E2;
+	padding: 13px 15px 13px 14px;
+	border-radius: 3px;
+	color: #ccc;
+	font-size: 1.5em;
+	font-weight:bold;
+	margin-bottom: 3px;
+}
+
+.step_title a {
+	color:#b4b4b4;	
+	text-decoration:none;
+}
+.active .step_title {
+	background: #f0f0f0; /* Old browsers */
+	border-color: #e9e9e9;
+	color: #404040;
+}
+.summary .step_title, .active.summary .step_title {
+	background:#FFF;
+	border:0px;
+	padding-left:0;
+}
+.step_content {
+	margin-bottom:10px;
+	padding:15px 0;
+}
+
+div.controls {
+	position:relative;
+}
+
+div.controls input#check_different_delivery_address {
+	position:absolute;
+	top:0;
+	left: 0;
+	z-index: 0;
+}
+
+div.controls label#label_different_delivery_address {
+	position:relative;
+	z-index:1;
+	padding-left: 24px;
+	padding-top: 0px;
+}
+#CAparagraph {
+	margin:0 0 8px 0;	
+}
+#create_account_block #CAparagraph label {
+	padding-left:21px;
+}
+.login_modal h2 {
+	margin:5px 0 15px 0;	
+}
+ul.address_list {
+	list-style: none;
+	margin: 0;
+}
+
+li.address_block {
+	padding: 5px;
+	width: 330px;
+	margin-bottom: 10px;
+	border-radius: 3px;
+}
+
+li.address_block:hover, .shipping_item:hover, .payment_item:hover, .order_subtotal_item:hover, .coupon_item:hover, .order_total_item:hover {
+	background-color: #f2f2f2;
+}
+
+li.address_block [type="radio"], li.address_block .address {
+	margin-right: 5px;
+	float: left;
+}
+
+li.address_block .delete_address {
+	float: right;
+	clear:right;
+	font-size: 0.8em;
+}
+
+details summary::-webkit-details-marker {
+	display:none;
+}
+
+.shipping_item,
+.payment_item,
+.order_subtotal_item,
+.coupon_item,
+.cadeaubon_item,
+.order_total_item {
+	padding: 5px;
+	border-radius: 3px;
+	margin-bottom: 10px;
+}
+
+.order_subtotal_item .order_subtotal_title,
+.order_total_item .order_total_title,
+.shipping_item .shipping_title,
+.payment_item .payment_title,
+.cadeaubon_item .cadeaubon_title,
+.shipping_item [type="radio"],
+.payment_item [type="radio"],
+.payment_item SELECT,
+.cadeaubon_item [type="checkbox"],
+.product_item .product_name,
+.product_item .product_model,
+.product_item .product_quantity {
+	float:left;
+	font-weight:bold;
+}
+
+
+.payment_item select {
+	margin-left: 5px;
+	margin-top: -4px;
+	margin-bottom: -4px;
+}
+
+.shipping_item .shipping_quote ,
+.order_subtotal_item .order_subtotal_quote,
+.coupon_item .coupon_quote,
+.cadeaubon_item .cadeaubon_quote,
+.order_total_item .order_total_quote,
+.product_item .product_price {
+	width: 55px;
+	text-align: right;
+	vertical-align: top;
+	float:right;
+}
+
+.step99 .shipping_item .shipping_quote,
+.step99 .order_subtotal_item .order_subtotal_quote,
+.step99 .coupon_item .coupon_quote,
+.step99 .cadeaubon_item .cadeaubon_quote,
+.step99 .order_total_item .order_total_quote,
+.step99 .product_item .product_price,
+.summary .order_subtotal_item .order_subtotal_quote,
+.summary .coupon_item .coupon_quote,
+.summary .cadeaubon_item .cadeaubon_quote,
+.summary .order_total_item .order_total_quote,
+.summary .product_item .product_price {
+	float:none;
+}
+
+
+.step99 .shipping_item,
+.step99 .payment_item,
+.step99 .cadeaubon_item,
+.step99 .order_subtotal_item,
+.step99 .order_total_item,
+.summary .shipping_item,
+.summary .payment_item,
+.summary .cadeaubon_item,
+.summary .order_subtotal_item,
+.summary .coupon_item,
+.summary .order_total_item {
+	padding: 3px;
+	margin-bottom: 0px;
+}
+
+.coupon_item .coupon_title,
+.step99 .shipping_item .shipping_title,
+.step99 .payment .payment_title,
+.step99 .cadeaubon_item .cadeaubon_title,
+.step99 .order_subtotal_item .order_subtotal_title,
+.step99 .order_total_item .order_total_title,
+.summary .shipping_item .shipping_title,
+.summary .payment .payment_title,
+.summary .cadeaubon_item .cadeaubon_title,
+.summary .order_subtotal_item .order_subtotal_title,
+.summary .coupon_item .coupon_title,
+.summary .order_total_item .order_total_title {
+	text-align: right;
+	font-weight:bold;
+	float:none;
+}
+
+td.product_price, th.product_price {
+	text-align: right;
+}
+
+td.product_quantity, th.product_quantity {
+	text-align: center;
+}
+
+.summary th.product_model, .summary td.product_model {
+	display:none;
+}
+
+.shipping_description, .payment_description {
+	clear:left;
+	margin-left:13px;
+}
+
+.billing_address, .delivery_address, .shipping_method, .payment_method {
+	float:left;
+	width: 50%;
+}
+.box.payment_methods {
+	margin:25px 0;	
+}
+.btn-cta {
+	margin:14px 0;
+	background-color: hsl(74, 87%, 28%);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#abdb0f", endColorstr="#688509");
+	background-image: -khtml-gradient(linear, left top, left bottom, from(#abdb0f), to(#688509));
+	background-image: -moz-linear-gradient(top, #abdb0f, #688509);
+	background-image: -ms-linear-gradient(top, #abdb0f, #688509);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #abdb0f), color-stop(100%, #688509));
+	background-image: -webkit-linear-gradient(top, #abdb0f, #688509);
+	background-image: -o-linear-gradient(top, #abdb0f, #688509);
+	background-image: linear-gradient(#abdb0f, #688509);
+	border-color: #688509 #688509 hsl(74, 87%, 23.5%);
+	color: #fff;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.29);
+	-webkit-font-smoothing: antialiased;
+}
+.btn-cta:hover, .btn-cta:active, .btn-cta.active, .btn-cta.disabled, .btn-cta[disabled] {
+	background-color:#688509;
+	*background-color:#688509;
+	color:#fff;
+}

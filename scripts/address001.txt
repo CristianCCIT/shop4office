@@ -1,0 +1,2 @@
+abo_id;entry_gender;entry_company;entry_firstname;entry_street_address;entry_postcode;entry_city;country;billing_tva_intracom;
+5;;ABO2 Service2;Desmet Dieter;Stationsstraat 39;8430;Sijsele;Belgium;BE 0447 564 892;

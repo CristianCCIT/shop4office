@@ -1,0 +1,66 @@
+<?php DEFINE ('STS_END_CHAR', '$'); ?>
+<?php DEFINE ('STS_CONTENT_END_CHAR', '$'); ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl" $htmlparams$>
+<head>
+<base href="<?php echo HTTP_SERVER.DIR_WS_HTTP_CATALOG;?>" />
+$headertags$
+<link rel="stylesheet" type="text/css" href="$templatedir$/css/style.css" />
+<link rel="stylesheet" type="text/css" href="$templatedir$/css/style_sitemap.css" />
+<link rel="shortcut icon" href="$templatedir$/images/favicon.ico" type="image/x-icon" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
+$google_analytics$
+</head>
+<body class="abocms">
+<div id="wrap">
+	<div id="main">
+        <div class="container">
+        	<div id="outer_content">
+                    $content$
+            </div>
+            <div id="left_column">
+                <?php tep_get_module('left', true);	?>
+            </div>
+        </div>
+        <div id="header">
+            <div class="container">
+                <a href="<?php tep_href_link(FILENAME_DEFAULT); ?>" class="logo"><img src="$templatedir$/images/logo.jpg" /></a>
+                <?php tep_get_module('header', true);	?>
+                <?php tep_get_module('top', true); ?>
+            </div>
+        </div>
+     </div>
+</div>
+<div id="footer">
+	<div class="container">
+    <?php tep_get_module('footer', true); ?>
+    </div>
+</div>
+<script type="text/javascript" src="includes/js/pirobox.min.js" ></script>
+<script type="text/javascript" >
+$(document).ready(function() {
+	$().piroBox({
+		my_speed: 400, //animation speed
+		bg_alpha: 0.5, //background opacity
+		slideShow : true, // true == slideshow on, false == slideshow off
+		slideSpeed : 4, //slideshow duration in seconds(3 to 6 Recommended)
+		close_all : '.piro_close'// add class .piro_overlay(with comma)if you want overlay click close piroBox
+	});
+	$('#header .box.categories ul li').hover(
+		function() {
+			$(this).find('ul.level_1').show();     /* On hover add the class 'hovered' and apply the hovered styles */
+		}, function() {
+			$(this).find('ul.level_1').hide();  /* On mouseout remove the class 'hovered' and reset the styles   */
+		}
+	);
+});
+</script>
+<!--[if IE 6]>
+<script src="includes/js/DD_belatedPNG.js"></script>
+<script type="text/javascript">
+  DD_belatedPNG.fix('#banners_title_box_shadow, #banners_title_selector, #content');
+</script>
+<![endif]-->
+</body>
+</html>

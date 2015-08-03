@@ -1,0 +1,15 @@
+@charset "utf-8";
+/* CSS Document */
+
+.reviews { border:none 0; margin: 10px 0 0 130px; }
+.review { padding: 10px; border:1px solid #CCC; margin:3px 0; }
+.review h3 { font-size:12px; margin:5px 0; }
+.review p { font-style:italic; }
+.review-rating ul li { float:left; display: block;}
+.review-rating:after { content:'.'; visibility:hidden; font-size: 0; clear: both;}
+.comments { margin-top:10px; padding:0 10px; }
+.comments form { width:400px; }
+.comments h3 { margin:10px 0; }
+.comments label { float:left; margin:0 10px 0 0; }
+.comments #r_text { margin:10px 0;}
+.comments input[type=submit] { padding:2px 10px; border:#B30000 1px solid; background: #EEE; cursor:pointer; margin:10px 15px 0 0; float:right; }

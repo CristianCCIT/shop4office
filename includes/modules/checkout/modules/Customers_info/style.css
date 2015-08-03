@@ -1,0 +1,6 @@
+/****************************/
+/*	Customers_info module	*/
+/****************************/
+#CAparagraph {position:relative;}
+#CAparagraph input {left: 0px;top: 0px;position: absolute;z-index:0;}
+#CAparagraph label {padding-left: 15px;padding-top: 0px;position:relative;z-index:1;}

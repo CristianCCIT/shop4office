@@ -1,0 +1,23 @@
+<?xml-stylesheet type="text/xsl" href="gss.xsl"?>
+<sitemapindex xmlns="http://www.google.com/schemas/sitemap/0.84">
+	<sitemap>
+		<loc>http://www.abowebhosting.be/basis/sitemapcategories.xml</loc>
+		<lastmod>2012-03-16</lastmod>
+	</sitemap>
+	<sitemap>
+		<loc>http://www.abowebhosting.be/basis/sitemapmanufacturers.xml</loc>
+		<lastmod>2012-03-16</lastmod>
+	</sitemap>
+	<sitemap>
+		<loc>http://www.abowebhosting.be/basis/sitemappages.xml</loc>
+		<lastmod>2012-03-16</lastmod>
+	</sitemap>
+	<sitemap>
+		<loc>http://www.abowebhosting.be/basis/sitemapproducts.xml</loc>
+		<lastmod>2012-03-16</lastmod>
+	</sitemap>
+	<sitemap>
+		<loc>http://www.abowebhosting.be/basis/sitemapspecials.xml</loc>
+		<lastmod>2012-03-16</lastmod>
+	</sitemap>
+</sitemapindex>

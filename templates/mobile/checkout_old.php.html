@@ -1,0 +1,390 @@
+<?php DEFINE ('STS_END_CHAR', '$'); ?>
+<?php DEFINE ('STS_CONTENT_END_CHAR', '$'); ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl" $htmlparams$><head>
+<base href="<?php echo HTTP_SERVER.DIR_WS_HTTP_CATALOG;?>" />
+$headertags$
+<link rel="stylesheet" type="text/css" href="$templatedir$/css/style.css" />
+<link rel="stylesheet" type="text/css" href="$templatedir$/css/style_checkout.css" />
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/base/jquery-ui.css" />
+<link rel="shortcut icon" href="$templatedir$/images/favicon.ico" type="image/x-icon" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
+<script type="text/javascript" language="javascript" src="ext/jQuery/jQuery.ajaxq.js"></script>
+<script type="text/javascript" language="javascript" src="ext/jQuery/jQuery.pstrength.js"></script>
+<script type="text/javascript" language="javascript" src="includes/checkout/checkout.js"></script>
+<style>
+.pstrength-minchar {
+	font-size : 10px;
+}
+</style>
+<script language="javascript"><!--
+function CVVPopUpWindow(url) {
+	window.open(url,'popupWindow','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,copyhistory=no,width=600,height=233,screenX=150,screenY=150,top=150,left=150')
+}
+
+function CVVPopUpWindowEx(url) {
+	window.open(url,'popupWindow','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,copyhistory=no,width=600,height=510,screenX=150,screenY=150,top=150,left=150')
+}
+
+  var onePage = checkout;
+  onePage.initializing = true;
+  onePage.ajaxCharset = '<?php echo CHARSET;?>';
+  onePage.loggedIn = <?php echo (tep_session_is_registered('customer_id') ? 'true' : 'false');?>;
+  onePage.autoshow = <?php echo ((ONEPAGE_AUTO_SHOW_BILLING_SHIPPING == 'False') ? 'false' : 'true');?>;
+  onePage.stateEnabled = <?php echo (ACCOUNT_STATE == 'true' ? 'true' : 'false');?>;
+  onePage.showAddressInFields = <?php echo ((ONEPAGE_CHECKOUT_SHOW_ADDRESS_INPUT_FIELDS == 'False') ? 'false' : 'true');?>;
+  onePage.showMessagesPopUp = <?php echo ((ONEPAGE_CHECKOUT_LOADER_POPUP == 'True') ? 'true' : 'false');?>;
+  onePage.ccgvInstalled = <?php echo (MODULE_ORDER_TOTAL_COUPON_STATUS == 'true' ? 'true' : 'false');?>;
+  //BOF KGT
+  onePage.kgtInstalled = <?php echo (MODULE_ORDER_TOTAL_DISCOUNT_COUPON_STATUS == 'true' ? 'true' : 'false');?>;
+  //EOF KGT
+  //BOF POINTS
+  onePage.pointsInstalled = <?php echo (((USE_POINTS_SYSTEM == 'true') && (USE_REDEEM_SYSTEM == 'true')) ? 'true' : 'false');?>;
+  //EOF POINTS
+  onePage.shippingEnabled = 'true';
+  onePage.pageLinks = {
+	  checkout: '<?php echo fixSeoLink(tep_href_link(FILENAME_CHECKOUT, "&rType=ajax"));?>',
+	  shoppingCart: '<?php echo fixSeoLink(tep_href_link(FILENAME_SHOPPING_CART));?>'
+  }
+  var addressErrors = '<?php echo Translate("Fouten in de adresgegevens:");?>'+"\n",
+  required_billing_address = '<?php echo addslashes(Translate("- Vul a.u.b. alle vereiste velden in bij het \'Betaal adres\'"));?>',
+  required_shipping_address = '<?php echo addslashes(Translate("- Vul a.u.b. alle vereiste velden in bij het \'Verzend adres\'"));?>',
+  correct_billing_address = '<?php echo addslashes(Translate("- Verbeter a.u.b. de velden met fouten bij het \'Betaal adres\'"));?>',
+  correct_shipping_address = '<?php echo addslashes(Translate("- Verbeter a.u.b. de velden met fouten bij het \'Verzend adres\'"));?>',
+  confirmation_paswoord_error = '<?php echo addslashes(Translate("- Uw paswoord bevestiging komt niet overeen met het paswoord."));?>',
+  payment_selection_error = '<?php echo addslashes(Translate("Fouten bij de betaal methode:"));?>'+"\n"+'<?php echo addslashes(Translate("- Selecteer a.u.b. een betaal methode"));?>',
+  shipping_selection_error = '<?php echo addslashes(Translate("Fouten bij de verzend methode:"));?>'+"\n"+'<?php echo addslashes(Translate("- Selecteer a.u.b. een verzend methode"));?>';
+
+  function getFieldErrorCheck($element){
+	  var rObj = {};
+	  switch($element.attr('name')){
+		  case 'billing_firstname':
+		  case 'shipping_firstname':
+			  rObj.minLength = <?php echo addslashes(ENTRY_FIRST_NAME_MIN_LENGTH);?>;
+			  rObj.errMsg = '<?php echo sprintf(addslashes(Translate("Uw naam moet minstens %s karakters lang zijn!")), ENTRY_FIRST_NAME_MIN_LENGTH);?>';
+		  break;
+		  /*case 'shipping_lastname':
+			  rObj.minLength = <?php echo addslashes(ENTRY_LAST_NAME_MIN_LENGTH);?>;
+			  rObj.errMsg = '<?php echo addslashes(ENTRY_LAST_NAME_ERROR);?>';
+		  break;*/
+		  case 'billing_email_address':
+			  rObj.minLength = <?php echo addslashes(ENTRY_EMAIL_ADDRESS_MIN_LENGTH);?>;
+			  rObj.errMsg = '<?php echo sprintf(addslashes(Translate("Uw email-adres moet minstens %s karakters lang zijn!")), ENTRY_EMAIL_ADDRESS_MIN_LENGTH);?>';
+		  break;
+		  case 'billing_street_address':
+		  case 'shipping_street_address':
+			  rObj.minLength = <?php echo addslashes(ENTRY_STREET_ADDRESS_MIN_LENGTH);?>;
+			  rObj.errMsg = '<?php echo sprintf(addslashes(Translate("Uw straatnaam moet minstens %s karakters lang zijn!")), ENTRY_STREET_ADDRESS_MIN_LENGTH);?>';
+		  break;
+		  case 'billing_zipcode':
+		  case 'shipping_zipcode':
+			  rObj.minLength = <?php echo addslashes(ENTRY_POSTCODE_MIN_LENGTH);?>;
+			  rObj.errMsg = '<?php echo sprintf(addslashes(Translate("Uw postcode moet minstens %s karakters lang zijn!")), ENTRY_POSTCODE_MIN_LENGTH);?>';
+		  break;
+		  case 'billing_city':
+		  case 'shipping_city':
+			  rObj.minLength = <?php echo addslashes(ENTRY_CITY_MIN_LENGTH);?>;
+			  rObj.errMsg = '<?php echo sprintf(addslashes(Translate("Uw gemeente moet minstens %s karakters lang zijn!")), ENTRY_CITY_MIN_LENGTH);?>';
+		  break;
+		  case 'billing_dob':
+			  rObj.minLength = <?php echo addslashes(ENTRY_DOB_MIN_LENGTH);?>;
+			  rObj.errMsg = '<?php echo sprintf(addslashes(Translate("Uw geboortedatum moet minstens %s karakters lang zijn!")), ENTRY_DOB_MIN_LENGTH);?>';
+		  break;
+		  case 'billing_telephone':
+			  rObj.minLength = <?php echo addslashes(ENTRY_TELEPHONE_MIN_LENGTH);?>;
+			  rObj.errMsg = '<?php echo sprintf(addslashes(Translate("Uw telefoon moet minstens %s karakters lang zijn!")), ENTRY_TELEPHONE_MIN_LENGTH);?>';
+		  break;
+		  case 'billing_country':
+		  case 'shipping_country':
+			  rObj.errMsg = "<?php echo Translate('Selecteer a.u.b. een land!');?>";
+		  break;
+		  case 'billing_state':
+		  case 'delivery_state':
+			  rObj.minLength = <?php echo addslashes(ENTRY_STATE_MIN_LENGTH);?>;
+			  rObj.errMsg = '<?php echo sprintf(addslashes(Translate("Uw staat moet minstens %s karakters lang zijn!")), ENTRY_STATE_MIN_LENGTH);?>';
+		  break;
+		  case 'password':
+		  case 'confirmation':
+			  rObj.minLength = <?php echo addslashes(ENTRY_PASSWORD_MIN_LENGTH);?>;
+			  rObj.errMsg = '<?php echo addslashes(Translate("Uw paswoord is niet correct ingevoerd!"));?>';
+		  break;
+	  }
+	return rObj;
+  }
+
+$(document).ready(function (){
+	var loginBoxOpened = false;
+	/*$('#loginButton').click(function (){
+		if (loginBoxOpened){
+			$('#loginBox').dialog('open');
+			return false;
+		}
+		$('#loginBox').dialog({
+			resizable: false,
+			shadow: false,
+			open: function (){
+				var $dialog = this;
+				$('input', $dialog).keypress(function (e){
+					if (e.which == 13){
+						$('#loginWindowSubmit', $dialog).click();
+					}
+				});
+
+				$('#loginWindowSubmit', $dialog).hover(function (){
+					this.style.cursor = 'pointer';
+				}, function (){
+					this.style.cursor = 'default';
+				}).click(function (){
+					var $this = $(this);
+					$this.hide();
+					var email = $('input[name="email_address"]', $dialog).val();
+					var pass = $('input[name="password"]', $dialog).val();
+					onePage.queueAjaxRequest({
+						url: onePage.pageLinks.checkout,
+						data: 'action=processLogin&email=' + email + '&pass=' + pass,
+						dataType: 'json',
+						type: 'post',
+						beforeSend: function (){
+							onePage.showAjaxMessage('Refreshing Shopping Cart');
+							if ($('#loginStatus', $this.parent()).size() <= 0){
+								$('<div>')
+								.attr('id', 'loginStatus')
+								.html('Processing Login')
+								.attr('align', 'center')
+								.insertAfter($this);
+							}
+						},
+						success: function (data){
+							if (data.success == 'true'){
+								$('#loginStatus', $dialog).html(data.msg);
+								$('#logInRow').hide();
+
+								$('#changeBillingAddressTable').show();
+								$('#changeShippingAddressTable').show();
+								$('#newAccountEmail').remove();
+								$('#diffShipping').parent().parent().parent().remove();
+
+								onePage.updateAddressHTML('billing');
+								onePage.updateAddressHTML('shipping');
+
+								$('#shippingAddress').show();
+
+								var updateTotals = true;
+								onePage.updateCartView();
+								onePage.updateFinalProductListing();
+								onePage.updatePaymentMethods();
+								if ($(':radio[name="payment"]:checked').size() > 0){
+									onePage.setPaymentMethod($(':radio[name="payment"]:checked'));
+									updateTotals = false;
+								}
+								onePage.updateShippingMethods();
+								if ($(':radio[name="shipping"]:checked').size() > 0){
+									//onePage.setShippingMethod($(':radio[name="shipping"]:checked').val());
+									 onePage.setShippingMethod($(':radio[name="shipping"]:checked'));
+									updateTotals = false;
+								}
+
+								if (updateTotals == true){
+									onePage.updateOrderTotals();
+								}
+
+								$('#loginBox').dialog('destroy');
+							}else{
+								$('#logInRow').show();
+								$('#loggedInRow').hide();
+
+								$('#loginStatus', $dialog).html(data.msg);
+								setTimeout(function (){
+									$('#loginStatus').remove();
+									$('#loginWindowSubmit').show();
+								}, 6000);
+								setTimeout(function (){
+									$('#loginStatus').html('Try again in 3');
+								}, 3000);
+								setTimeout(function (){
+									$('#loginStatus').html('Try again in 2');
+								}, 4000);
+								setTimeout(function (){
+									$('#loginStatus').html('Try again in 1');
+								}, 5000);
+							}
+						},
+						errorMsg: '<?php echo Translate("Er was een probleem bij het inloggen. Contacteer ".STORE_OWNER_EMAIL_ADDRESS." hierover.");?>'
+					});
+				});
+			}
+		});
+		loginBoxOpened = true;
+		return false;
+	});*/
+
+	$('#changeBillingAddress, #changeShippingAddress').click(function (){
+		var addressType = 'billing';
+		if ($(this).attr('id') == 'changeShippingAddress'){
+			addressType = 'shipping';
+		}
+		$('#addressBook').clone().show().appendTo(document.body).dialog({
+			shadow: false,
+			width: 550,
+		   // height: 450,
+			minWidth: 550,
+			//minHeight: 500,
+			open: function (){
+				onePage.loadAddressBook($(this), addressType);
+			},
+			buttons: {
+				"<?php echo addslashes(Translate('Annuleren'));?>": function (){
+					var $this = $(this);
+					var action = $('input[name="action"]', $this).val();
+					//alert($(':input, :select, :radio, :checkbox', this).serialize());
+					if (action == 'selectAddress'){
+						$this.dialog('close');
+					}else if (action == 'addNewAddress' || action == 'saveAddress'){
+						onePage.loadAddressBook($this, addressType);
+					}
+				},
+				"<?php echo addslashes(Translate('Toepassen'));?>": function (){
+					var $this = $(this);
+					var action = $('input[name="action"]', $this).val();
+					//alert($(':input, :select, :radio, :checkbox', this).serialize());
+					if (action == 'selectAddress'){
+						onePage.queueAjaxRequest({
+							url: onePage.pageLinks.checkout,
+							beforeSendMsg: 'Setting Address',
+							dataType: 'json',
+							data: $(':input, :radio', this).serialize(),
+							type: 'post',
+							success: function (data){
+								$this.dialog('close');
+								if (addressType == 'shipping'){
+									onePage.updateAddressHTML('shipping');
+									onePage.updateShippingMethods();
+								}else{
+									onePage.updateAddressHTML('billing');
+									onePage.updatePaymentMethods();
+								}
+							},
+							errorMsg: '<?php echo Translate("Er was een probleem bij het opslaan van uw adres. Contacteer ".STORE_OWNER_EMAIL_ADDRESS." hierover.");?>'
+						});
+					}else if (action == 'addNewAddress'){
+						onePage.queueAjaxRequest({
+							url: onePage.pageLinks.checkout,
+							beforeSendMsg: 'Saving New Address',
+							dataType: 'json',
+							data: $(':input, :select, :radio, :checkbox', this).serialize(),
+							type: 'post',
+							success: function (data){
+								onePage.loadAddressBook($this, addressType);
+							},
+							errorMsg: '<?php echo Translate("Er was een probleem bij het opslaan van uw adres. Contacteer ".STORE_OWNER_EMAIL_ADDRESS." hierover.");?>'
+						});
+					}else if (action == 'saveAddress'){
+						onePage.queueAjaxRequest({
+							url: onePage.pageLinks.checkout,
+							beforeSendMsg: 'Updating Address',
+							dataType: 'json',
+							data: $(':input, :select, :radio, :checkbox', this).serialize(),
+							type: 'post',
+							success: function (data){
+								onePage.loadAddressBook($this, addressType);
+							},
+							errorMsg: '<?php echo Translate("Er was een probleem bij het opslaan van uw adres. Contacteer ".STORE_OWNER_EMAIL_ADDRESS." hierover.");?>'
+						});
+					}
+				},
+				'<?php echo addslashes(Translate("Nieuw adres"));?>': function (){
+					var $this = $(this);
+					onePage.queueAjaxRequest({
+						url: onePage.pageLinks.checkout,
+						data: 'action=getNewAddressForm',
+						type: 'post',
+						beforeSendMsg: 'Loading New Address Form',
+						success: function (data){
+							$this.html(data);
+							if(onePage.stateEnabled == true)
+							{
+								onePage.addCountryAjax($('select[name="country"]', $this), 'state', 'stateCol')
+							}
+						},
+						errorMsg: '<?php echo Translate("Er was een probleem bij het laden van uw nieuw adres. Contacteer ".STORE_OWNER_EMAIL_ADDRESS." hierover.");?>'
+					});
+				},
+				'<?php echo addslashes(Translate("Bewerk adres"));?>': function (){
+					var $this = $(this);
+					onePage.queueAjaxRequest({
+						url: onePage.pageLinks.checkout,
+						data: 'action=getEditAddressForm&addressID=' + $(':radio[name="address"]:checked', $this).val(),
+						type: 'post',
+						beforeSendMsg: 'Loading Edit Address Form',
+						success: function (data){
+							$this.html(data);
+						},
+						errorMsg: '<?php echo Translate("Er was een probleem bij het laden van uw adres. Contacteer ".STORE_OWNER_EMAIL_ADDRESS." hierover.");?>'
+					});
+				}
+			}
+		});
+	   return false;
+	});
+
+	onePage.initCheckout();
+});
+//-->
+</script>
+$google_analytics$
+</head>
+<body class="abocms">
+<div id="wrap">
+	<div id="main">
+        <div class="container">
+        	<div id="outer_content">
+                <div id="content">
+                    $content$
+                </div>
+            </div>
+            <div id="left_column">
+                <?php tep_get_module('left', true);	?>
+            </div>
+        </div>
+        <div id="header">
+            <div class="container">
+                <a href="<?php tep_href_link(FILENAME_DEFAULT); ?>" class="logo"><img src="$templatedir$/images/logo.jpg" /></a>
+                <?php tep_get_module('header', true);	?>
+                <?php tep_get_module('top', true); ?>
+            </div>
+        </div>
+     </div>
+</div>
+<div id="footer">
+	<div class="container">
+    <?php tep_get_module('footer', true); ?>
+    </div>
+</div>
+<script type="text/javascript" src="includes/js/pirobox.min.js" ></script>
+<script type="text/javascript" >
+$(document).ready(function() {
+	$().piroBox({
+		my_speed: 400, //animation speed
+		bg_alpha: 0.5, //background opacity
+		slideShow : true, // true == slideshow on, false == slideshow off
+		slideSpeed : 4, //slideshow duration in seconds(3 to 6 Recommended)
+		close_all : '.piro_close'// add class .piro_overlay(with comma)if you want overlay click close piroBox
+	});
+	$('#header .box.categories ul li').hover(
+		function() {
+			$(this).find('ul.level_1').show();     /* On hover add the class 'hovered' and apply the hovered styles */
+		}, function() {
+			$(this).find('ul.level_1').hide();  /* On mouseout remove the class 'hovered' and reset the styles   */
+		}
+	);
+});
+</script>
+<!--[if IE 6]>
+<script src="includes/js/DD_belatedPNG.js"></script>
+<script type="text/javascript">
+  DD_belatedPNG.fix('#banners_title_box_shadow, #banners_title_selector, #content');
+</script>
+<![endif]-->
+</body>
+</html>

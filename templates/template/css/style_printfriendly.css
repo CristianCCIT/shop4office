@@ -1,0 +1,11 @@
+﻿body{background:#fff;background-image:none;}
+#content {padding:15px;margin-left:0;}
+#content.contentcompare{width:750px;}
+#header{display:none;position:relative;width:100%;border-top:none;}
+#container{margin-top:0;width:100%;}
+#print_link{display:inline;}
+#print_date{display:none;}
+#logo{float:none;background:none;}
+.product-info .product-gallery{height:250px;min-height:250px;}
+.product-printfriendly-details{color:#a2844a;border:1px solid #e7d674;background-color:#fbf7aa;padding:8px;margin:0 0 15px 0;}
+.product-printfriendly-details a{color:#a2844a;}

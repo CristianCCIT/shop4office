@@ -1,0 +1,89 @@
+/********************/
+
+/*	Kiala module	*/
+
+/********************/
+
+label.Kiala_label {
+
+	display:block;
+
+}
+
+.Kiala_kp {
+
+	border-radius: 3px;
+
+	padding:15px 5px;
+
+}
+
+.Kiala_kp:hover {
+
+	background-color: #e5e5e5;
+
+}
+
+.Kiala_kp [type="radio"] {
+
+	float:left;
+
+	clear:left;
+
+	margin-right: 5px;
+
+}
+
+.Kiala_kp_image {
+
+	float:left;
+	margin-left:10px;
+	margin-right: 18px;
+
+}
+
+.Kiala_kp_name {
+
+	font-weight:bold;
+
+	float:left;
+
+}
+
+.Kiala_kp_id {
+
+	float:right;
+
+	color: #666;
+
+	font-size: 0.8em;
+
+}
+
+.Kiala_kp_address, .Kiala_kp_locationhint {
+
+	font-size: 0.9em;
+
+}
+
+.Kiala_kp_address {
+
+	clear:right;
+
+}
+
+.Kiala_kp_locationhint {
+
+	color: #666;
+
+	font-style:italic;
+
+	font-size: 0.8em;
+
+}
+
+.Kiala_kp_status {
+
+	color: #FF0000;
+
+}

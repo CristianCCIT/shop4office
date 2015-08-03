@@ -1,0 +1,1 @@
+<?php echo tep_draw_textarea_field('comments', 'soft', '70', '2', $comments, 'id="comments"'); ?>

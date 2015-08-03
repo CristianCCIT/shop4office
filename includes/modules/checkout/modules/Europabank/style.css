@@ -1,0 +1,208 @@
+/************************/
+/*	Europabank TEMPLATE	*/
+/************************/
+
+div.eub-body-center {
+    margin: 0 auto;
+    text-align: left;
+    width: 780px;
+}
+div.eub-banner-container {
+    background-color: #FFFEF0;
+    border-left: 1px solid silver;
+    border-right: 1px solid silver;
+    border-top: 1px solid silver;
+    display: none;
+    height: 80px;
+    width: 730px;
+}
+div.eub-banner {
+    background-image: url("../images/logo.gif");
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 80px;
+    width: 728px;
+}
+div.eub-header-container {
+    background-color: #FFFEF0;
+    border: 1px solid silver;
+    font: 0.8em Arial;
+    height: 110px;
+    width: 730px;
+}
+div.eub-header {
+    float: left;
+    height: 109px;
+    text-align: center;
+    width: 728px;
+}
+div.eub-head-row {
+    clear: both;
+    padding-top: 5px;
+}
+span.eub-head-col1 {
+    float: left;
+    font-weight: bold;
+    margin: 2px 2px 0 0;
+    text-align: right;
+    width: 360px;
+}
+span.eub-head-col2 {
+    float: left;
+    margin: 2px 2px 0 0;
+    text-align: left;
+    width: 360px;
+}
+div.eub-error-container {
+    background-color: #FFFEF0;
+    border-left: 1px solid silver;
+    border-right: 1px solid silver;
+    height: 30px;
+    width: 730px;
+}
+div.eub-error {
+    background-color: #FF9999;
+    border: 1px solid red;
+    color: red;
+    font: bold 1em Arial;
+    text-align: center;
+    width: 728px;
+}
+div.eub-body-container {
+    background-color: #FFFEF0;
+    border-left: 1px solid silver;
+    border-right: 1px solid silver;
+    font: 0.8em Arial;
+    height: 230px;
+    width: 730px;
+}
+div.eub-body {
+    border-left: 2px solid #FFFEF0;
+    float: left;
+    height: 220px;
+    width: 241px;
+}
+div.eub-active {
+    background-image: url("../images/bg-active.gif");
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 200px;
+}
+div.eub-not-active {
+    background-image: url("../images/bg-not-active.gif");
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 200px;
+}
+div.eub-title {
+    color: brown;
+    font: bold 1.3em Arial;
+    height: 30px;
+    padding-top: 5px;
+    text-align: center;
+    text-decoration: underline;
+    width: 100%;
+}
+div.eub-form {
+    color: black;
+    height: 155px;
+    width: 100%;
+}
+div.eub-submit {
+    height: 30px;
+    text-align: center;
+    width: 100%;
+}
+img.eub-logo {
+    vertical-align: middle;
+}
+div.eub-brand-row {
+    clear: both;
+    height: 45px;
+}
+span.eub-brand-col1 {
+    float: left;
+    height: 25px;
+    margin: 2px 2px 0 0;
+    text-align: right;
+    width: 75px;
+}
+span.eub-brand-col2 {
+    float: right;
+    height: 25px;
+    margin: 2px 0 0;
+    width: 145px;
+}
+div.eub-card-row {
+    clear: both;
+    padding-top: 5px;
+}
+span.eub-card-col1 {
+    float: left;
+    font-weight: bold;
+    height: 25px;
+    margin: 2px 2px 0 0;
+    text-align: right;
+    width: 84px;
+}
+span.eub-card-col2 {
+    float: right;
+    height: 25px;
+    margin: 2px 0 0;
+    width: 150px;
+}
+input.eub-card {
+    font: 1em Arial;
+    width: 140px;
+}
+select.eub-card {
+    font: 1em Arial;
+	width: 70px;
+}
+div.eub-content {
+    color: black;
+    padding: 5px;
+    width: 215px;
+}
+div.eub-footer-container {
+    background-color: white;
+    border: 1px solid silver;
+    font: 0.8em Arial;
+    height: 80px;
+    width: 730px;
+}
+div.eub-footer {
+    float: left;
+    height: 78px;
+    text-align: center;
+    width: 238px;
+}
+img.eub-footer-logo {
+    border: 0 none;
+    margin: 5px;
+}
+form.eub-form {
+    margin: 0;
+    padding: 0;
+}
+input.eub-submit {
+    background-color: #FFFF5E;
+    background-image: url("../images/button_gradient.gif");
+    border: 1px solid gray;
+    cursor: pointer;
+    font: 1em Arial;
+    margin-left: 5px;
+    margin-right: 5px;
+    outline: medium none;
+    padding: 2px 5px;
+}
+.loading-indicator {
+    background: url("../images/ajax-loader.gif") no-repeat scroll center center transparent;
+    height: 80px;
+    width: 80px;
+}
+.loading-indicator-overlay {
+    background-color: #FFFFFF;
+    opacity: 0.6;
+}
+

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="gss.xsl"?>
+<urlset xmlns="http://www.google.com/schemas/sitemap/0.84">
+	<url>
+		<loc>http://www.abowebhosting.be/basis/scripts/FILENAME_PRODUCT_INFO?products_id=44822</loc>
+		<lastmod>2011-01-10</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>1.0</priority>
+	</url>
+	<url>
+		<loc>http://www.abowebhosting.be/basis/scripts/FILENAME_PRODUCT_INFO?products_id=44762</loc>
+		<lastmod>2011-01-10</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.5</priority>
+	</url>
+	<url>
+		<loc>http://www.abowebhosting.be/basis/scripts/FILENAME_PRODUCT_INFO?products_id=44754</loc>
+		<lastmod>2011-01-10</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>1.0</priority>
+	</url>
+	<url>
+		<loc>http://www.abowebhosting.be/basis/scripts/FILENAME_PRODUCT_INFO?products_id=44636</loc>
+		<lastmod>2011-01-10</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.4</priority>
+	</url>
+	<url>
+		<loc>http://www.abowebhosting.be/basis/scripts/FILENAME_PRODUCT_INFO?products_id=44615</loc>
+		<lastmod>2011-01-10</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.9</priority>
+	</url>
+</urlset>

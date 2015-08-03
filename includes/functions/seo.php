@@ -1,4 +1,4 @@
-﻿<?php
+﻿﻿<?php
 function tep_href_link($page = '', $parameters = '', $connection = 'NONSSL', $add_session_id = true, $force_language_id = false, $cPath = '') {
 	global $request_type, $session_started, $SID, $languages_id;
 	if ($force_language_id !== false) {

@@ -1756,7 +1756,7 @@ body:before {
         top:125px;
         height:47px;
 /*      background:#000; */
-    background: url('../images/navbar_bg.png');
+    /*background: url('../images/navbar_bg.png');*/
         border:1px solid #dadada;
         -webkit-border-radius: 3px 3px 0 0;
         -moz-border-radius: 3px 3px 0 0;

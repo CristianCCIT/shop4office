@@ -18,6 +18,10 @@
                 <?php
                     $parent_list = abo_get_navigation(0,0,true);
                     $categories = getStyledCategoryList(0,0,true);
+
+                    xD3bug($parent_list);
+                    xD3bug($categories,1, '127.0.0.1');
+
                     if($categories){
                         $_cat = array();
                         foreach ($categories as $category){

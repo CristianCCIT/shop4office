@@ -146,7 +146,7 @@ function hideMask(element) {
 	}
 }
 $(document).ready(function(){
-	$('#telephone').live('focus', function() {
+	$('#telephone').on('focus', function() {
 		$land = $('#country').val();
 		if ($land == '21') {
 			$('#telephone').attr('condition', 'reg\\d{3}\\/\\d{2}\\.\\d{2}\\.\\d{2}_required');
@@ -159,7 +159,7 @@ $(document).ready(function(){
 			$('#telephone').next('div').html('bv. 000/00.00.00');
 		}
 	});
-	$('#fax').live('focus', function() {
+	$('#fax').on('focus', function() {
 		$land = $('#country').val();
 		if ($land == '21') {
 			$('#fax').attr('condition', 'reg\\d{3}\\/\\d{2}\\.\\d{2}\\.\\d{2}');
@@ -172,14 +172,14 @@ $(document).ready(function(){
 			$('#fax').next('div').html('bv. 000/00.00.00');
 		}
 	});
-	if ($.browser.msie && $.browser.version == '6.0') {}else{
+	if (typeof $.browser.msie != 'undefined' && $.browser.version == '6.0') {}else{
 		$('.masked').remove();
 		$('input').each(function() {
 			if($(this).attr('mask')) {
 				$(this).wrap('<div style="position:relative;" />');
-				$(this).live('focus', function() {
+				$(this).on('focus', function() {
 					showMask($(this));
-					$(this).live('blur', function() {
+					$(this).on('blur', function() {
 						hideMask($(this));
 					});
 				});
@@ -187,8 +187,8 @@ $(document).ready(function(){
 		});
 	}
 	updateSubmitButton();
-	$('input:not(:hidden), select, textarea').live('change', function() {validate($(this), true);updateSubmitButton();});
-	$('input:not(:hidden), select, textarea').live('blur', function() {validate($(this), true);updateSubmitButton();});
+	$('input:not(:hidden), select, textarea').on('change', function() {validate($(this), true);updateSubmitButton();});
+	$('input:not(:hidden), select, textarea').on('blur', function() {validate($(this), true);updateSubmitButton();});
 	$('input:submit').hover(function() {
 		updateSubmitButton();
 	});

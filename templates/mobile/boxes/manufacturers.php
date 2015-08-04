@@ -16,17 +16,19 @@ if ($number_of_rows = tep_db_num_rows($manufacturers_query)) {
 	}
 	?>
 	<div class="col-xs-12 mb-20">
-		<select id="manufacturers_id" class="form-control">
-			<?php $_selected = (isset($_GET['manufacturers_id']) ? $_GET['manufacturers_id'] : 0); ?>
-			<?php foreach ($manufacturers_array as $entry) { ?>
-				<option <?php echo (($_selected && $_selected == $entry['manufacturers_id']) ? 'selected="selected"' : ''); ?>
-					value="<?php echo $entry['id']; ?>"><?php echo $entry['text']; ?></option>
-			<?php } ?>
-		</select>
+		<form>
+			<select id="manufacturers_id" class="form-control">
+				<?php $_selected = (isset($_GET['manufacturers_id']) ? $_GET['manufacturers_id'] : 0); ?>
+				<?php foreach ($manufacturers_array as $entry) { ?>
+					<option <?php echo (($_selected && $_selected == $entry['manufacturers_id']) ? 'selected="selected"' : ''); ?>
+						value="<?php echo $entry['id']; ?>"><?php echo $entry['text']; ?></option>
+				<?php } ?>
+			</select>
+		</form>
 		<script type="text/javascript">
 			$(function () {
 				$('#manufacturers_id').change(function () {
-					console.log('Changed');
+//					console.log('Changed');
 					if ($(this).val().length) {
 						window.location = $(this).val();
 					}

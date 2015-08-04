@@ -631,7 +631,7 @@ function tep_db_list_query($query, $link = 'db_list_link') {
         error_log('QUERY ' . $query . "\n", 3, $log_file);
 
     }
-
+//    xD3bug($query,1,'127.0.0.1');
     $result = mysql_query($query, $$link_list) or tep_db_error($query, mysql_errno(), mysql_error());
 
     if (defined('STORE_DB_TRANSACTIONS') && (STORE_DB_TRANSACTIONS == 'true')) {

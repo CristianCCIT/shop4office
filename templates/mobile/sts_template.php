@@ -46,28 +46,7 @@
 
         <?php loadBox('manufacturers'); ?>
 
-        <?php if($_SERVER['REQUEST_URI'] != '/'.FILENAME_DEFAULT){ ?>
-            <div class="col-xs-12">
-                <div class="col-xs-12 mb-20">
-                    $content$
-                </div>
-            </div>
-        <?php } else { ?>
-            <?php loadBox('banners'); ?>
-
-            <?php
-            $homepage_query = tep_db_query('SELECT infopages_id FROM infopages WHERE type = "home"');
-            $homepage = tep_db_fetch_array($homepage_query);
-            ?>
-            <div class="col-xs-12">
-                <div class="panel panel-info">
-                    <div class="panel-heading"><?php echo tep_get_infopages_title($homepage['infopages_id']); ?></div>
-                    <div class="panel-body">
-                        <?php echo tep_get_infopages_description($homepage['infopages_id']); ?>
-                    </div>
-                </div>
-            </div>
-        <?php } ?>
+        <?php loadBox('content'); ?>
 
         <div class="col-xs-12 footer">
             <div class="row mb-20">

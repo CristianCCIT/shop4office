@@ -4,8 +4,8 @@
 	if (tep_db_num_rows($banners_query) > 0) {
 	$i = 0;
 ?>
-	<div class="col-xs-12 mb-20">
-		<div id="carousel" style="overflow: hidden; margin: auto; position: relative">
+	<div class="col-xs-12 mb-20 text-center">
+		<div id="carousel" style="margin: auto; display: inline-block">
 			<?php while ($banners = tep_db_fetch_array($banners_query)) { ?>
 				<?php
 					$link = '#';

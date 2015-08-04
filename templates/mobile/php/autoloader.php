@@ -13,6 +13,7 @@ function __autoload($class){
 	$_paths = array(
 		root.'php'.DIRECTORY_SEPARATOR.'classes'.DIRECTORY_SEPARATOR,
 		root.'php'.DIRECTORY_SEPARATOR.'modules'.DIRECTORY_SEPARATOR,
+		DIR_WS_CLASSES
 	);
 
 	foreach($_paths as $_path){

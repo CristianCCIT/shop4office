@@ -44,6 +44,7 @@ if ($results_limit != '') {
 } else {
 	$query_limit = $products_per_search_page;
 }
+
 $listing_split = new splitPageResults($listing_sql, $query_limit, 'p.products_id');
 if ($listing_split->number_of_rows > 0) {
 	if (($listing_split->number_of_rows > 0) && ((PREV_NEXT_BAR_LOCATION == '1') || (PREV_NEXT_BAR_LOCATION == '3'))) {

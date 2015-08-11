@@ -17,10 +17,12 @@ if (strlen($getParams) > 0) {
 		$_GET[$getData[0]] = $getData[1];
 	}
 }
+
 $cat_array = array();
 $page_array = array();
 $prod_array = array();
 $man_array = array();
+
 $seo_url = str_replace($catalogDir, '', $urlData[0]);
 $url_parts = explode('/', preg_replace(array('#^/#', '#/$#'), '', $seo_url));
 $new_seo_url = '';

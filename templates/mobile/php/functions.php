@@ -26,8 +26,14 @@ function xD3bug($data, $exit=false, $ip='82.208.181.52')
 	}
 }
 
-function getSiteLanguage()
+function getSiteLanguage($get=null)
 {
+	$default = array(
+		'dir' => 'dutch',
+		'id' => '1',
+		'code' => 'nl'
+	);
+
 	if (!tep_session_is_registered('language') || isset($_GET['language'])) {
 		if (!tep_session_is_registered('language')) {
 			tep_session_register('language');
@@ -45,18 +51,17 @@ function getSiteLanguage()
 			}
 		}
 
-		return array(
+		$default = array(
 			'dir' => $lng->language['directory'],
 			'id' => $lng->language['id'],
 			'code' => $lng->language['code']
 		);
 	}
 
-	return array(
-		'dir' => 'dutch',
-		'id' => '1',
-		'code' => 'nl'
-	);
+	if($get && isset($default[$get]))
+		return $default[$get];
+
+	return $default;
 }
 
 function queryToArray($query)
@@ -72,4 +77,19 @@ function queryToArray($query)
 	}
 
 	return $data;
+}
+
+function loadPage($pageID)
+{
+	#ToDo : Load a page
+}
+
+function loadCategory($categoryID)
+{
+	#ToDo : Load a category or categories
+}
+
+function loadProduct($productID)
+{
+	#ToDo : Load a product or products
 }

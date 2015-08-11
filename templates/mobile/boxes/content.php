@@ -25,4 +25,12 @@ if(in_array($_SERVER['REQUEST_URI'], array('/', '/'.FILENAME_DEFAULT))){
 <?php
 } else {
 
+	if(isset($_GET['products_is']))
+		loadProduct($_GET['products_is']);
+
+	if(isset($_GET['cPath']))
+		loadCategory($_GET['cPath']);
+
+	if(isset($_GET['page']))
+		loadPage($_GET['page']);
 }
